@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image'],
+  modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image', '@nuxtjs/robots'],
   css: ['~/assets/css/main.css'],
   routeRules: {
     '/': { redirect: '/projets' }

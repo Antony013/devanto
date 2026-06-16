@@ -36,7 +36,7 @@ useHead({
                 "@id": `${siteUrl}/#person`,
                 name: "Antony F. Guillin",
                 url: siteUrl,
-                image: `${siteUrl}/images/antony.png`,
+                image: `${siteUrl}/images/antony.webp`,
                 description:
                     "Développeur web freelance spécialisé dans la conception de sites web modernes, performants et éco-conçus.",
                 jobTitle: "Développeur web freelance",
@@ -61,7 +61,7 @@ useHead({
         <div class="flex flex-col md:flex-row gap-6">
             <div class="shrink-0 w-full md:w-1/4 flex flex-col gap-6">
                 <div class="aspect-3/4 rounded-2xl overflow-hidden w-52 sm:w-64 md:w-full">
-                    <NuxtImg src="/images/antony.png" loading="lazy" alt="Photo portrait de Antony F. Guillin"
+                    <NuxtImg src="/images/antony.webp" loading="lazy" alt="Photo portrait de Antony F. Guillin"
                         class="w-full h-full object-cover" />
                 </div>
 

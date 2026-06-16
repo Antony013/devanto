@@ -13,7 +13,7 @@ useSeoMeta({
     ogDescription:
         "Contactez Antony F. Guillin pour discuter de votre projet de création ou de refonte de site web.",
 
-    ogImage: `${siteUrl}/images/antony.png`,
+    ogImage: `${siteUrl}/images/antony.webp`,
     ogUrl: `${siteUrl}/contact`,
     ogType: 'website',
 
@@ -47,7 +47,7 @@ useHead({
                     name: "Antony F. Guillin",
                     jobTitle: "Développeur web freelance",
                     url: siteUrl,
-                    image: `${siteUrl}/images/antony.png`
+                    image: `${siteUrl}/images/antony.webp`
                 }
             })
         }
@@ -128,7 +128,7 @@ function resetForm() {
                 <div class="hidden md:flex flex-col gap-8">
                     <div
                         class="w-full aspect-3/4 max-w-70 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
-                        <NuxtImg src="/images/antony.png" alt="Antony F. Guillin"
+                        <NuxtImg src="/images/antony.webp" alt="Antony F. Guillin"
                             class="w-full h-full object-cover object-top" loading="lazy" />
                     </div>
                     <div>

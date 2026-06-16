@@ -10,13 +10,13 @@
     "Mise en ligne"
   ],
   "description": "En 2021, alors que je débute mes études en développement web, une amie fraîchement diplômée en diététique me contacte pour savoir si je peux créer le site vitrine de son activité. Sans hésiter, j'accepte. C'est l'occasion pour moi de travailler sur l'un de mes premiers projets concrets tout en accompagnant une proche dans le lancement de son activité. \n\n Pendant un an et demi, ce site a représenté son activité en libéral avant qu'elle ne choisisse de retourner travailler en clinique. Aujourd'hui encore, ce projet reste l'un de ceux qui me tiennent le plus à cœur, car il marque le début de mon parcours en tant que développeur et m'a permis de mettre mes compétences au service d'une personne de confiance.",
-  "cover": "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-cover.png",
+  "cover": "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-cover.webp",
   "gallery": [
-    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-a-propos.png",
-    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-accompagnement.png",
-    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-contact.png",
-    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-faq.png",
-    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-tarif.png"
+    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-a-propos.webp",
+    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-accompagnement.webp",
+    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-contact.webp",
+    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-faq.webp",
+    "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-tarif.webp"
   ],
   "technologies": [
     "Figma",

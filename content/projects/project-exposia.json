@@ -11,10 +11,10 @@
     "Mise en ligne"
   ],
   "description": "En 2025, je fais la connaissance d'Emma Clairenbeaud (Unecamusienne) sur les réseaux sociaux. Après avoir collaboré ensemble sur un autre projet, je tombe par hasard sur l'un de ses commentaires sous une vidéo présentant une exposition : « Pourquoi il n'existe pas un Letterboxd pour les expositions ? ».\n\nCette simple phrase m'intrigue. Je découvre alors Letterboxd, une plateforme qui permet de noter des films, de partager ses avis et de conserver un historique de ce que l'on a vu. Je cherche un équivalent dédié aux expositions, mais ne trouve rien de convaincant.\n\nJe décide alors de concevoir cette plateforme, d'abord comme un projet personnel inspiré par cette idée. Au fil des semaines, le projet prend de l'ampleur. À force d'en parler autour de moi et d'imaginer de nouvelles fonctionnalités, Exposia devient bien plus qu'un simple exercice : c'est un projet que je souhaite faire vivre sur le long terme.\n\nMême si son développement a connu plusieurs pauses, une première version a été mise en ligne. Une nouvelle version, entièrement repensée, est actuellement en préparation.\n\nExposia est une plateforme collaborative qui permet de découvrir les expositions autour de soi, de partager son expérience, de noter les expositions visitées et de conserver un historique de ses découvertes culturelles.",
-  "cover": "/images/projects/exposia/exposia-cover.png",
+  "cover": "/images/projects/exposia/exposia-cover.webp",
   "gallery": [
-    "/images/projects/exposia/exposia-page-exposition.png",
-    "/images/projects/exposia/exposia-map-grand.png"
+    "/images/projects/exposia/exposia-page-exposition.webp",
+    "/images/projects/exposia/exposia-map-grand.webp"
   ],
   "technologies": [
     "Figma",

@@ -11,7 +11,7 @@ useSeoMeta({
     ogDescription:
         "Découvrez mes offres de création de sites web : landing page, site vitrine et e-commerce.",
 
-    ogImage: `${siteUrl}/images/antony.png`,
+    ogImage: `${siteUrl}/images/antony.webp`,
     ogUrl: `${siteUrl}/services`,
     ogType: 'website',
 
@@ -45,7 +45,7 @@ useHead({
                     name: "Antony F. Guillin",
                     jobTitle: "Développeur web freelance",
                     url: siteUrl,
-                    image: `${siteUrl}/images/antony.png`
+                    image: `${siteUrl}/images/antony.webp`
                 },
 
                 hasOfferCatalog: {

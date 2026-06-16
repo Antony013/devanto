@@ -7,14 +7,14 @@
     "UX/UI"
   ],
   "description": "En 2025, je découvre par hasard les créations de Magaly. J'apprécie immédiatement son univers et la qualité de ses produits, mais je pense que son site pourrait davantage mettre en valeur son identité de marque. \n\n Par défi personnel, je décide alors d'en concevoir une refonte complète, en repensant l'expérience utilisateur, le design et la présentation des produits. Après plusieurs jours de travail, je lui présente cette proposition. Même si elle choisit finalement de poursuivre le développement de son site selon sa propre vision, cet exercice m'a permis d'explorer un cas concret de refonte e-commerce et de mettre en pratique mes compétences en UX/UI et en développement. Depuis, son site a d'ailleurs beaucoup évolué et répond pleinement aux attentes d'une boutique en ligne moderne.",
-  "cover": "/images/projects/ile-a-gammes/ile-a-gammes-cover.png",
+  "cover": "/images/projects/ile-a-gammes/ile-a-gammes-cover.webp",
   "gallery": [
-    "/images/projects/ile-a-gammes/ile-a-gammes-produit.png",
-    "/images/projects/ile-a-gammes/ile-a-gammes-products.png",
-    "/images/projects/ile-a-gammes/ile-a-gammes-faq.png",
-    "/images/projects/ile-a-gammes/ile-a-gammes-contact.png",
-    "/images/projects/ile-a-gammes/ile-a-gammes-about.png",
-    "/images/projects/ile-a-gammes/ile-a-gammes-produit-v2.png"
+    "/images/projects/ile-a-gammes/ile-a-gammes-produit.webp",
+    "/images/projects/ile-a-gammes/ile-a-gammes-products.webp",
+    "/images/projects/ile-a-gammes/ile-a-gammes-faq.webp",
+    "/images/projects/ile-a-gammes/ile-a-gammes-contact.webp",
+    "/images/projects/ile-a-gammes/ile-a-gammes-about.webp",
+    "/images/projects/ile-a-gammes/ile-a-gammes-produit-v2.webp"
   ],
   "technologies": [
     "Figma"
