@@ -6,5 +6,12 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   routeRules: {
     '/': { redirect: '/projets' }
+  },
+  runtimeConfig: {
+    public: {
+      emailjsServiceId: '',      // Nuxt remplace automatiquement avec NUXT_PUBLIC_EMAILJS_SERVICE_ID
+      emailjsTemplateId: '',     // → NUXT_PUBLIC_EMAILJS_TEMPLATE_ID
+      emailjsPublicKey: '',      // → NUXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    }
   }
 })
