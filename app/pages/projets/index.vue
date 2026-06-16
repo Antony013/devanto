@@ -4,7 +4,7 @@ const { data: projects } = await useAsyncData('projects', () =>
 )
 
 onMounted(() => {
-    if (!projects.value?.length) refresh()
+    if (!projects.value?.length) window.location.reload(true)
 })
 
 const siteUrl = 'https://devanto.exposia.art'
