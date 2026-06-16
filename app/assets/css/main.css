@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+  --ui-container: 1440px; /* var(--container-7xl) */
+  color-scheme: light;
+}
+
