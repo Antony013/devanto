@@ -2,9 +2,56 @@
 import emailjs from '@emailjs/browser'
 const config = useRuntimeConfig()
 
+const siteUrl = 'https://devanto.exposia.art'
+
 useSeoMeta({
-    title: 'Contact — Antony F. Guillin',
-    description: 'Contactez Antony F. Guillin, freelance web design et développement web.'
+    title: 'Contact | Antony F. Guillin - Développeur web freelance',
+    description:
+        "Vous avez un projet de site web ou une question ? Contactez Antony F. Guillin, développeur web freelance spécialisé en création de sites web modernes, performants et éco-conçus.",
+
+    ogTitle: 'Contact | Antony F. Guillin',
+    ogDescription:
+        "Contactez Antony F. Guillin pour discuter de votre projet de création ou de refonte de site web.",
+
+    ogImage: `${siteUrl}/images/antony.png`,
+    ogUrl: `${siteUrl}/contact`,
+    ogType: 'website',
+
+    twitterCard: 'summary_large_image',
+
+    robots: 'index,follow'
+})
+
+useHead({
+    link: [
+        {
+            rel: 'canonical',
+            href: `${siteUrl}/contact`
+        }
+    ],
+
+    script: [
+        {
+            type: 'application/ld+json',
+            children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ContactPage",
+                name: "Contact",
+                url: `${siteUrl}/contact`,
+                description:
+                    "Page de contact d'Antony F. Guillin, développeur web freelance.",
+
+                mainEntity: {
+                    "@type": "Person",
+                    "@id": `${siteUrl}/#person`,
+                    name: "Antony F. Guillin",
+                    jobTitle: "Développeur web freelance",
+                    url: siteUrl,
+                    image: `${siteUrl}/images/antony.png`
+                }
+            })
+        }
+    ]
 })
 
 const EMAILJS_SERVICE_ID = config.public.emailjsServiceId
@@ -81,13 +128,13 @@ function resetForm() {
                 <div class="hidden md:flex flex-col gap-8">
                     <div
                         class="w-full aspect-3/4 max-w-70 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
-                        <img src="/images/antony.png" alt="Antony F. Guillin"
+                        <NuxtImg src="/images/antony.png" alt="Antony F. Guillin"
                             class="w-full h-full object-cover object-top" loading="lazy" />
                     </div>
                     <div>
-                        <h2 class="text-3xl font-light tracking-tight leading-tight">
+                        <h1 class="text-3xl font-light tracking-tight leading-tight">
                             Antony F. Glln
-                        </h2>
+                        </h1>
                         <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
                             Freelance web design et développeur web
                         </p>
@@ -176,9 +223,9 @@ function resetForm() {
             </div>
         </div>
 
-        <h1 class="hidden md:block text-6xl sm:text-7xl md:text-8xl font-thin tracking-tight leading-none">
+        <p class="hidden md:block text-6xl sm:text-7xl md:text-8xl font-thin tracking-tight leading-none">
             Contact
-        </h1>
+        </p>
     </div>
 </template>
 

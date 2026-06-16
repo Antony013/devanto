@@ -12,6 +12,47 @@ const { data: project } = await useAsyncData(
             .first()
 )
 
+const siteUrl = 'https://devanto.exposia.art'
+
+useSeoMeta({
+    title: () => `${project.value?.title} | Portfolio d'Antony Guillin`,
+    description: () => project.value?.description,
+
+    ogTitle: () => project.value?.title,
+    ogDescription: () => project.value?.description,
+    ogImage: () =>
+        project.value?.cover
+            ? `${siteUrl}${project.value.cover}`
+            : `${siteUrl}/og.jpg`,
+    ogUrl: () => `${siteUrl}/projets/${route.params.slug}`,
+    ogType: 'website',
+
+    twitterCard: 'summary_large_image',
+
+    robots: "index, follow"
+})
+
+const structuredData = computed(() => ({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.value?.title,
+    description: project.value?.description,
+    image: `${siteUrl}${project.value?.cover}`,
+    author: {
+        "@type": "Person",
+        name: "Antony Guillin"
+    }
+}))
+
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            children: computed(() => JSON.stringify(structuredData.value))
+        }
+    ]
+})
+
 const { data: projects } = await useAsyncData(
     'projects',
     () => queryCollection('projects').all()
@@ -135,7 +176,8 @@ const imgZoomStyle = computed(() => ({
                     class="relative h-full shrink-0 overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black"
                     :style="index === 0 ? 'width: 85vw' : 'width: 60vw'"
                     :class="{ 'md:!w-[55vw]': index === 0, 'md:!w-[35vw]': index > 0, 'border-l border-white/20': index > 0 }">
-                    <img :src="img" :alt="`${project.title} — vue ${index + 1}`"
+                    <NuxtImg format="webp" quality="80" loading="lazy" :src="img"
+                        :alt="`${project.title} — vue ${index + 1}`"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03] select-none" />
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
@@ -205,19 +247,23 @@ const imgZoomStyle = computed(() => ({
                                 <li v-for="tech in project.technologies" :key="tech" class="flex items-center gap-2">
                                     <UIcon v-if="tech.toLowerCase() === 'figma'" name="i-lucide-figma"
                                         class="w-6 h-6 shrink-0" />
-                                    <img v-if="tech.toLowerCase() === 'symfony'" src="/images/badges/symfony.png"
-                                        alt="logo du framework Symfony" class="w-6 h-6">
+                                    <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'symfony'"
+                                        src="/images/badges/symfony.png" alt="logo du framework Symfony"
+                                        class="w-6 h-6" />
                                     <UIcon v-if="tech.toLowerCase() === 'html / css / js'" name="i-lucide-code"
                                         class="w-6 h-6 shrink-0" />
-                                    <img v-if="tech.toLowerCase() === 'nodejs'" src="/images/badges/nodejs.svg"
-                                        alt="logo du framework Symfony" class="w-6 h-6">
-                                    <img v-if="tech.toLowerCase() === 'vuejs'" src="/images/badges/vuejs.svg"
-                                        alt="logo du framework Symfony" class="w-6 h-6">
-                                    <img v-if="tech.toLowerCase() === 'mysql'" src="/images/badges/mysql.svg"
-                                        alt="logo du framework Symfony" class="w-6 h-6">
-                                    <img v-if="tech.toLowerCase() === 'openstreetmap'"
+                                    <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'nodejs'"
+                                        src="/images/badges/nodejs.svg" alt="logo du framework Symfony"
+                                        class="w-6 h-6" />
+                                    <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'vuejs'"
+                                        src="/images/badges/vuejs.svg" alt="logo du framework Symfony"
+                                        class="w-6 h-6" />
+                                    <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'mysql'"
+                                        src="/images/badges/mysql.svg" alt="logo du framework Symfony"
+                                        class="w-6 h-6" />
+                                    <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'openstreetmap'"
                                         src="/images/badges/openstreetmap.svg" alt="logo du framework Symfony"
-                                        class="w-6 h-6">
+                                        class="w-6 h-6" />
                                     {{ tech }}
                                 </li>
                             </ul>
@@ -245,8 +291,8 @@ const imgZoomStyle = computed(() => ({
                     class="lightbox-backdrop fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
                     @click="onBackdropClick">
                     <div class="relative flex overflow-hidden items-center justify-center w-full max-w-5xl"
-                         @mousedown="onMouseDown" @mousemove="onMouseMove" @mouseup="onMouseUp"
-                        @mouseleave="onMouseUp" @click.stop>
+                        @mousedown="onMouseDown" @mousemove="onMouseMove" @mouseup="onMouseUp" @mouseleave="onMouseUp"
+                        @click.stop>
                         <button @click="closeLightbox"
                             class="absolute -top-10 right-0 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 cursor-pointer"
                             aria-label="Fermer">
@@ -259,8 +305,8 @@ const imgZoomStyle = computed(() => ({
                             <UIcon name="i-lucide-chevron-left" class="w-6 h-6" />
                         </button>
 
-                        <img :src="allImages[lightboxIndex]" :alt="`${project.title} — vue ${lightboxIndex + 1}`"
-                            :style="imgZoomStyle"
+                        <NuxtImg loading="lazy" :src="allImages[lightboxIndex]"
+                            :alt="`${project.title} — vue ${lightboxIndex + 1}`" :style="imgZoomStyle"
                             class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl select-none"
                             @dblclick="onDblClick" @click.stop />
 
@@ -282,7 +328,8 @@ const imgZoomStyle = computed(() => ({
                             :class="i === lightboxIndex
                                 ? 'ring-2 ring-white opacity-100 scale-105'
                                 : 'opacity-35 hover:opacity-65'">
-                            <img :src="img" :alt="`Miniature ${i + 1}`" class="h-10 w-14 object-cover" />
+                            <NuxtImg loading="lazy" :src="img" :alt="`Miniature ${i + 1}`"
+                                class="h-10 w-14 object-cover" />
                         </button>
                     </div>
                 </div>

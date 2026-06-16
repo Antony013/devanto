@@ -1,9 +1,67 @@
+<script setup lang="ts">
+const siteUrl = 'https://devanto.exposia.art'
+
+useSeoMeta({
+    title: 'Biographie | Antony F. Guillin - Développeur web freelance',
+    description:
+        "Découvrez le parcours d'Antony F. Guillin, développeur web freelance spécialisé en création de sites web modernes, performants et éco-conçus.",
+
+    ogTitle: 'Biographie | Antony F. Guillin',
+    ogDescription:
+        "Découvrez le parcours, les compétences et la vision d'Antony F. Guillin, développeur web freelance.",
+
+    ogImage: `${siteUrl}/images/antony.png`,
+    ogUrl: `${siteUrl}/biographie`,
+    ogType: 'profile',
+
+    twitterCard: 'summary_large_image',
+
+    robots: 'index,follow'
+})
+
+useHead({
+    link: [
+        {
+            rel: 'canonical',
+            href: `${siteUrl}/biographie`
+        }
+    ],
+
+    script: [
+        {
+            type: 'application/ld+json',
+            children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "@id": `${siteUrl}/#person`,
+                name: "Antony F. Guillin",
+                url: siteUrl,
+                image: `${siteUrl}/images/antony.png`,
+                description:
+                    "Développeur web freelance spécialisé dans la conception de sites web modernes, performants et éco-conçus.",
+                jobTitle: "Développeur web freelance",
+                knowsAbout: [
+                    "Développement web",
+                    "Web design",
+                    "Nuxt.js",
+                    "Vue.js",
+                    "Symfony",
+                    "Tailwind CSS",
+                    "SEO",
+                    "Éco-conception web"
+                ]
+            })
+        }
+    ]
+})
+</script>
+
 <template>
     <div class="min-h-screen flex flex-col gap-6 p-6 sm:p-24 pb-24">
         <div class="flex flex-col md:flex-row gap-6">
             <div class="shrink-0 w-full md:w-1/4 flex flex-col gap-6">
                 <div class="aspect-3/4 rounded-2xl overflow-hidden w-52 sm:w-64 md:w-full">
-                    <img src="/images/antony.png" loading="lazy" alt="Photo portrait de Antony F. Guillin"
+                    <NuxtImg src="/images/antony.png" loading="lazy" alt="Photo portrait de Antony F. Guillin"
                         class="w-full h-full object-cover" />
                 </div>
 

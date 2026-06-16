@@ -1,4 +1,79 @@
 <script setup lang="ts">
+
+const siteUrl = 'https://devanto.exposia.art'
+
+useSeoMeta({
+    title: 'Services & tarifs | Antony F. Guillin - Développeur web freelance',
+    description:
+        "Création de sites web modernes, performants et éco-conçus. Découvrez mes offres : site vitrine, boutique en ligne et landing page sur mesure.",
+
+    ogTitle: 'Services & tarifs | Antony F. Guillin',
+    ogDescription:
+        "Découvrez mes offres de création de sites web : landing page, site vitrine et e-commerce.",
+
+    ogImage: `${siteUrl}/images/antony.png`,
+    ogUrl: `${siteUrl}/services`,
+    ogType: 'website',
+
+    twitterCard: 'summary_large_image',
+
+    robots: 'index,follow'
+})
+
+useHead({
+    link: [
+        {
+            rel: 'canonical',
+            href: `${siteUrl}/services`
+        }
+    ],
+
+    script: [
+        {
+            type: 'application/ld+json',
+            children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Service",
+                name: "Services de développement web",
+                url: `${siteUrl}/services`,
+                description:
+                    "Création de sites web modernes, performants et éco-conçus pour indépendants, entreprises et projets digitaux.",
+
+                provider: {
+                    "@type": "Person",
+                    "@id": `${siteUrl}/#person`,
+                    name: "Antony F. Guillin",
+                    jobTitle: "Développeur web freelance",
+                    url: siteUrl,
+                    image: `${siteUrl}/images/antony.png`
+                },
+
+                hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Offres de création de sites web",
+                    itemListElement: [
+                        {
+                            "@type": "Offer",
+                            name: "Landing page",
+                            description: "Page unique pour présenter une activité ou tester une idée."
+                        },
+                        {
+                            "@type": "Offer",
+                            name: "Site vitrine",
+                            description: "Site complet pour présenter une entreprise ou un portfolio."
+                        },
+                        {
+                            "@type": "Offer",
+                            name: "Site e-commerce",
+                            description: "Boutique en ligne avec paiement et gestion produits."
+                        }
+                    ]
+                }
+            })
+        }
+    ]
+})
+
 const offers = [
     {
         name: 'Une page',
