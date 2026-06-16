@@ -1,8 +1,5 @@
 <script setup lang="ts">
-const { data: projects } = await useAsyncData('projects', () =>
-    queryCollection('projects').all(),
-    { serveur: false }
-)
+const { data: projects } = await useFetch('/data/projects.json')
 
 const siteUrl = 'https://devanto.exposia.art'
 
