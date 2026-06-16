@@ -4,13 +4,7 @@ import ButtonBack from "~/components/ButtonBack.vue"
 
 const route = useRoute()
 
-const { data: project } = await useAsyncData(
-    `project-${route.params.slug}`,
-    () =>
-        queryCollection('projects')
-            .where('slug', '=', route.params.slug as string)
-            .first()
-)
+const { data: project } = await useFetch(`/data/projects/project-${route.params.slug}.json`)
 
 const siteUrl = 'https://devanto.exposia.art'
 

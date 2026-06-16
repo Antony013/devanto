@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "ile-a-gammes",
+    "title": "Ile a gammes",
+    "cover": "/images/projects/ile-a-gammes/ile-a-gammes-cover.webp"
+  },
+  {
+    "slug": "exposia",
+    "title": "Exposia",
+    "cover": "/images/projects/exposia/exposia-cover.webp"
+  },
+  {
+    "slug": "mathilde-hecquet",
+    "title": "Mathilde Hecquet Diététique",
+    "cover": "/images/projects/mathilde-hecquet-dietetique/mathilde-hecquet-dietetique-cover.webp"
+  }
+]

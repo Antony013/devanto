@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { data: projects } = await useFetch('/data/projects.json')
+const { origin } = useRequestURL()
+const projects = await $fetch(`${origin}/data/projects/projects.json`)
 
 const siteUrl = 'https://devanto.exposia.art'
 
