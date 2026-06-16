@@ -4,7 +4,8 @@ import ButtonBack from "~/components/ButtonBack.vue"
 
 const route = useRoute()
 
-const { data: project } = await useFetch(`/data/projects/project-${route.params.slug}.json`)
+const { origin } = useRequestURL()
+const { data: project } = await useFetch(`${origin}/data/projects/project-${route.params.slug}.json`)
 
 const siteUrl = 'https://devanto.exposia.art'
 
@@ -47,10 +48,7 @@ useHead({
     ]
 })
 
-const { data: projects } = await useAsyncData(
-    'projects',
-    () => queryCollection('projects').all()
-)
+const projects = await $fetch(`${origin}/data/projects/projects.json`)
 
 // Toutes les images (cover + galerie) fusionnées
 const allImages = computed<string[]>(() => {
@@ -161,7 +159,7 @@ const imgZoomStyle = computed(() => ({
 <template>
     <div v-if="project" class="h-screen flex flex-col relative bg-white">
 
-        <ButtonBack to="/projets" />
+        <ButtonBack to="/" />
 
         <!-- ── GALERIE : 45vh mobile / 50vh desktop, scroll horizontal ── -->
         <div class="w-full overflow-x-auto scrollbar-hide shrink-0 h-[45vh] md:h-[60vh]">
@@ -337,7 +335,7 @@ const imgZoomStyle = computed(() => ({
     <div v-else class="min-h-screen flex items-center justify-center">
         <div class="text-center flex flex-col items-center gap-4">
             <p class="text-neutral-400 text-sm tracking-widest uppercase">Projet introuvable</p>
-            <NuxtLink to="/projets">
+            <NuxtLink to="/">
                 <UButton variant="outline" color="neutral" size="sm">Retour aux projets</UButton>
             </NuxtLink>
         </div>

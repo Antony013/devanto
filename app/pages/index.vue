@@ -14,7 +14,7 @@ useSeoMeta({
         "Contactez Antony F. Guillin pour discuter de votre projet de création ou de refonte de site web.",
 
     ogImage: `${siteUrl}/images/antony.webp`,
-    ogUrl: `${siteUrl}/projets`,
+    ogUrl: `${siteUrl}/`,
     ogType: 'website',
 
     twitterCard: 'summary_large_image',
@@ -26,7 +26,7 @@ useHead({
     link: [
         {
             rel: 'canonical',
-            href: `${siteUrl}/projets`
+            href: `${siteUrl}/`
         }
     ],
 
@@ -37,7 +37,7 @@ useHead({
                 "@context": "https://schema.org",
                 "@type": "ProjetsPage",
                 name: "Projets",
-                url: `${siteUrl}/projets`,
+                url: `${siteUrl}/`,
                 description:
                     "Page des projets d'Antony F. Guillin, développeur web freelance.",
 
@@ -59,9 +59,9 @@ useHead({
     <div class="min-h-screen flex flex-col">
         <main class="flex-1 pl-6 pt-6 sm:pl-24 sm:pt-24">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                <NuxtLink v-for="project in projects" :key="project.slug" :to="`/projets/${project.slug}`"
+                <NuxtLink v-for="project in projects" :key="project.slug" :to="`projets/${project.slug}`"
                     class="block aspect-4/3 overflow-hidden group">
-                    <NuxtImg loading="lazy" :src="project.cover" :alt="project.title"
+                    <NuxtImg loading="lazy" :src="project.cover" alt="cover du projet"
                         class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80" />
                 </NuxtLink>
             </div>
