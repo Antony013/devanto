@@ -1,8 +1,11 @@
 <script setup lang="ts">
 const { data: projects } = await useAsyncData('projects', () =>
     queryCollection('projects').all(),
-    { lazy: false }
 )
+
+onMounted(() => {
+    if (!projects.value?.length) refresh()
+})
 
 const siteUrl = 'https://devanto.exposia.art'
 
