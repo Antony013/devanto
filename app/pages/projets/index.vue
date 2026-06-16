@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { data: projects } = await useAsyncData('projects', () =>
-    queryCollection('projects').all()
+    queryCollection('projects').all(),
+    server: false
 )
 
 const siteUrl = 'https://devanto.exposia.art'
