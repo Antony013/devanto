@@ -11,7 +11,7 @@ const items = computed<NavigationMenuItem[][]>(() => [[
     {
         label: 'Projets',
         icon: 'i-lucide-folder-dot',
-        to: '/projets',
+        to: '/',
         active: route.path.startsWith('/projets')
     },
     {

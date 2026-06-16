@@ -4,9 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@nuxt/ui', '@nuxt/image', '@nuxtjs/robots'],
   css: ['~/assets/css/main.css'],
-  routeRules: {
-    '/': { redirect: '/projets' }
-  },
   runtimeConfig: {
     public: {
       emailjsServiceId: '',      // Nuxt remplace automatiquement avec NUXT_PUBLIC_EMAILJS_SERVICE_ID
