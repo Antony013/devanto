@@ -59,6 +59,14 @@ const allImages = computed<string[]>(() => {
     return imgs
 })
 
+// Helper : extension de fichier
+function getExt(path: string) {
+    return path.split('.').pop()?.toLowerCase() ?? ''
+}
+function isVideo(path: string) {
+    return getExt(path) === 'webm'
+}
+
 // Lightbox
 const lightboxOpen = ref(false)
 const lightboxIndex = ref(0)
@@ -101,7 +109,6 @@ function handleKey(e: KeyboardEvent) {
 }
 
 const zoomScale = ref(1)
-const zoomOrigin = ref({ x: 50, y: 50 })
 const isDragging = ref(false)
 const dragStart = ref({ x: 0, y: 0 })
 const translate = ref({ x: 0, y: 0 })
@@ -111,7 +118,6 @@ function resetZoom() {
     translate.value = { x: 0, y: 0 }
 }
 
-// Remplacer prevImage() et nextImage()
 function prevImage() {
     lightboxIndex.value = (lightboxIndex.value - 1 + allImages.value.length) % allImages.value.length
     resetZoom()
@@ -121,14 +127,10 @@ function nextImage() {
     resetZoom()
 }
 
-// Remplacer closeLightbox()
 function closeLightbox() {
     lightboxOpen.value = false
     resetZoom()
 }
-
-// Zoom à la molette
-
 
 // Double-clic pour zoom/dézoom rapide
 function onDblClick() {
@@ -164,16 +166,30 @@ const imgZoomStyle = computed(() => ({
         <!-- ── GALERIE : 45vh mobile / 50vh desktop, scroll horizontal ── -->
         <div class="w-full overflow-x-auto scrollbar-hide shrink-0 h-[45vh] md:h-[60vh]">
             <div v-if="allImages.length" class="flex flex-row gap-4 h-full">
-                <button v-for="(img, index) in allImages" :key="index" @click="openLightbox(index)"
-                    class="relative h-full shrink-0 overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black"
-                    :style="index === 0 ? 'width: 85vw' : 'width: 60vw'"
-                    :class="{ 'md:!w-[55vw]': index === 0, 'md:!w-[35vw]': index > 0, 'border-l border-white/20': index > 0 }">
-                    <NuxtImg format="webp" quality="80" loading="lazy" :src="img"
-                        :alt="`${project.title} — vue ${index + 1}`"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03] select-none" />
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
-                </button>
+
+                <div v-for="(img, index) in allImages" :key="index"
+                    class="relative h-full shrink-0 overflow-hidden group"
+                    :style="index === 0 ? 'width: 85vw' : 'width: 60vw'" :class="{
+                        'md:!w-[55vw]': index === 0,
+                        'md:!w-[35vw]': index > 0,
+                        'border-l border-white/20': index > 0
+                    }">
+
+                    <!-- Image -->
+                    <button v-if="!isVideo(img)" @click="openLightbox(index)"
+                        class="relative w-full h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black">
+                        <NuxtImg format="webp" quality="80" loading="lazy" :src="img"
+                            :alt="`${project.title} — vue ${index + 1}`"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03] select-none" />
+                        <div
+                            class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+                    </button>
+
+                    <!-- Vidéo -->
+                    <video v-else :src="img" controls playsinline preload="metadata" class="w-full h-full object-cover">
+                        Votre navigateur ne prend pas en charge la lecture vidéo.
+                    </video>
+                </div>
             </div>
 
             <div v-else class="h-full bg-neutral-100 flex items-center justify-center">
@@ -189,7 +205,7 @@ const imgZoomStyle = computed(() => ({
                     class="grid grid-cols-1 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)_minmax(0,1fr)] gap-5 md:gap-10 h-full">
 
                     <!-- Gauche : titre + meta + navigation -->
-                    <div class="flex flex-col justify-between gap-8">
+                    <div class="flex flex-col  gap-8">
                         <div class="flex flex-col gap-8">
                             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-none">
                                 {{ project.title }}
@@ -245,16 +261,16 @@ const imgZoomStyle = computed(() => ({
                                     <UIcon v-if="tech.toLowerCase() === 'html / css / js'" name="i-lucide-code"
                                         class="w-6 h-6 shrink-0" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'nodejs'"
-                                        src="/images/badges/nodejs.svg" alt="logo du framework Symfony"
+                                        src="/images/badges/nodejs.svg" alt="logo du framework nodejs"
                                         class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'vuejs'"
-                                        src="/images/badges/vuejs.svg" alt="logo du framework Symfony"
+                                        src="/images/badges/vuejs.svg" alt="logo du framework vuejs"
                                         class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'mysql'"
-                                        src="/images/badges/mysql.svg" alt="logo du framework Symfony"
+                                        src="/images/badges/mysql.svg" alt="logo du framework mysql"
                                         class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'openstreetmap'"
-                                        src="/images/badges/openstreetmap.svg" alt="logo du framework Symfony"
+                                        src="/images/badges/openstreetmap.svg" alt="logo du framework openstreetmap"
                                         class="w-6 h-6" />
                                     {{ tech }}
                                 </li>
@@ -297,10 +313,19 @@ const imgZoomStyle = computed(() => ({
                             <UIcon name="i-lucide-chevron-left" class="w-6 h-6" />
                         </button>
 
-                        <NuxtImg loading="lazy" :src="allImages[lightboxIndex]"
-                            :alt="`${project.title} — vue ${lightboxIndex + 1}`" :style="imgZoomStyle"
+                        <!-- Image -->
+                        <NuxtImg v-if="!isVideo(allImages[lightboxIndex])" loading="lazy"
+                            :src="allImages[lightboxIndex]" :alt="`${project.title} — vue ${lightboxIndex + 1}`"
+                            :style="imgZoomStyle"
                             class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl select-none"
                             @dblclick="onDblClick" @click.stop />
+
+                        <!-- Vidéo -->
+                        <video v-else :src="allImages[lightboxIndex]" controls playsinline autoplay
+                            class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl select-none"
+                            @click.stop>
+                            Votre navigateur ne prend pas en charge la lecture vidéo.
+                        </video>
 
                         <button v-if="allImages.length > 1" @click="nextImage"
                             class="absolute -right-2 md:-right-12 z-10 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 cursor-pointer"
@@ -316,12 +341,15 @@ const imgZoomStyle = computed(() => ({
                     <div v-if="allImages.length > 1"
                         class="mt-3 flex flex-row gap-2 overflow-x-auto scrollbar-hide max-w-full px-2" @click.stop>
                         <button v-for="(img, i) in allImages" :key="i" @click="lightboxIndex = i"
-                            class="shrink-0 rounded-md overflow-hidden transition-all duration-200 focus:outline-none cursor-pointer"
+                            class="relative shrink-0 rounded-md overflow-hidden transition-all duration-200 focus:outline-none cursor-pointer h-10 w-14 bg-neutral-800"
                             :class="i === lightboxIndex
                                 ? 'ring-2 ring-white opacity-100 scale-105'
                                 : 'opacity-35 hover:opacity-65'">
-                            <NuxtImg loading="lazy" :src="img" :alt="`Miniature ${i + 1}`"
-                                class="h-10 w-14 object-cover" />
+                            <NuxtImg v-if="!isVideo(img)" loading="lazy" :src="img" :alt="`Miniature ${i + 1}`"
+                                class="h-full w-full object-cover" />
+                            <div v-else class="h-full w-full flex items-center justify-center">
+                                <UIcon name="i-lucide-play" class="w-4 h-4 text-white/80" />
+                            </div>
                         </button>
                     </div>
                 </div>
