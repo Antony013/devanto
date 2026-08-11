@@ -133,7 +133,7 @@ function resetForm() {
                     </div>
                     <div>
                         <h1 class="text-3xl font-light tracking-tight leading-tight">
-                            Antony F. Glln
+                            Antony F. Guillin
                         </h1>
                         <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
                             Freelance web design et développeur web

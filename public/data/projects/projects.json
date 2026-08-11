@@ -1,13 +1,18 @@
 [
   {
-    "slug": "ile-a-gammes",
-    "title": "Ile a gammes",
-    "cover": "/images/projects/ile-a-gammes/ile-a-gammes-cover.webp"
-  },
-  {
     "slug": "exposia",
     "title": "Exposia",
     "cover": "/images/projects/exposia/exposia-cover.webp"
+  },
+  {
+    "slug": "carmen-editions",
+    "title": "Carmen Editions",
+    "cover": "/images/projects/carmen-editioins/carmen-editioins-cover.webp"
+  },
+  {
+    "slug": "ile-a-gammes",
+    "title": "Ile a gammes",
+    "cover": "/images/projects/ile-a-gammes/ile-a-gammes-cover.webp"
   },
   {
     "slug": "mathilde-hecquet",

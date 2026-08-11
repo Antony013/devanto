@@ -1,0 +1,25 @@
+{
+"slug": "carmen-editions",
+"title": "Carmen Éditions",
+"type": "Projet pro.",
+"services": [
+"UX/UI",
+"Création des maquettes",
+"Développement web",
+"Communication",
+"Mise en ligne"
+],
+"description": "En août 2024, je rejoins Carmen Éditions, une maison d'édition associative, afin de participer au développement de sa présence numérique.\n\nMon rôle s'est principalement concentré sur la conception et le développement du site web, ainsi que sur la réflexion autour de l'identité visuelle et de la manière de présenter le projet et ses publications en ligne. L'objectif était de créer un espace permettant à l'association de présenter son travail, de mettre en avant ses publications et de développer son image sur le web.\n\nAu fil du projet, j'ai également participé à différents aspects de la communication de Carmen Éditions. Cette expérience m'a permis de travailler sur un projet culturel réel, avec des besoins concrets et une identité éditoriale à prendre en compte dans les choix de conception.\n\nLe projet a notamment abouti à la publication d'une première revue, avec une seconde publication envisagée par la suite. Le numérique et l'édition se sont ainsi développés en parallèle, avec la volonté de construire progressivement l'identité de Carmen Éditions et sa présence auprès du public.   \n\nLe projet a finalement pris fin après plusieurs mois, avec une première revue publiée et la mise en place de la présence numérique de l'association. Bien que Carmen Éditions ne poursuive aujourd'hui plus son activité, cette expérience m'a permis de travailler sur un projet culturel réel, de sa conception jusqu'à sa mise en ligne, tout en développant mes compétences en UX/UI, développement web et communication.",
+"cover": "/images/projects/carmen-editions/carmen-editions-cover.webp",
+"gallery": [
+"/images/projects/carmen-editions/Carmen-Editions.webm"
+],
+"technologies": [
+"Figma",
+"Vue.js"
+],
+"year": 2024,
+"time": "Plusieurs mois de travail",
+"website": "https://carmen-editions.fr",
+"production": false
+}

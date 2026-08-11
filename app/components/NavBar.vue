@@ -12,7 +12,7 @@ const items = computed<NavigationMenuItem[][]>(() => [[
         label: 'Projets',
         icon: 'i-lucide-folder-dot',
         to: '/',
-        active: route.path.startsWith('/projets')
+        active: route.path === '/' || route.path.startsWith('/projets')
     },
     {
         label: 'Biographie',
