@@ -107,7 +107,7 @@ async function handleSubmit() {
         submitted.value = true
     } catch (err) {
         console.error(err)
-        sendError.value = "Une erreur est survenue, veuillez réessayer ou m'écrire directement."
+        sendError.value = "Une erreur est survenue, veuillez réessayer ou m'écrire directement par mail : contact@exposia.art"
     } finally {
         loading.value = false
     }
