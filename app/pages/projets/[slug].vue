@@ -232,13 +232,20 @@ const imgZoomStyle = computed(() => ({
                                     <UIcon name="i-lucide-globe" class="w-6 h-6 shrink-0" />
                                     Site plus en ligne
                                 </p>
+                                <div class="flex items-start flex-row gap-2">
+                                    <UIcon name="i-lucide-sparkles" class="w-6 h-6 shrink-0" />
+                                    <div>
+                                        <p class="flex items-start flex-col gap-2">
+                                            {{ project.type }}
+                                        </p>
+                                        <p v-if="project.slug === 'carmen-editions'">
+                                            — Pour Emma Clairenbeaud (@unecamusienne)
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <span class="flex items-center gap-2">
-                            <UIcon name="i-lucide-sparkles" class="w-6 h-6 shrink-0" />
-                            {{ project.type }}
-                        </span>
                     </div>
 
                     <!-- Centre : description -->
@@ -264,11 +271,9 @@ const imgZoomStyle = computed(() => ({
                                         src="/images/badges/nodejs.svg" alt="logo du framework nodejs"
                                         class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'vuejs'"
-                                        src="/images/badges/vuejs.svg" alt="logo du framework vuejs"
-                                        class="w-6 h-6" />
+                                        src="/images/badges/vuejs.svg" alt="logo du framework vuejs" class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'mysql'"
-                                        src="/images/badges/mysql.svg" alt="logo du framework mysql"
-                                        class="w-6 h-6" />
+                                        src="/images/badges/mysql.svg" alt="logo du framework mysql" class="w-6 h-6" />
                                     <NuxtImg loading="lazy" v-if="tech.toLowerCase() === 'openstreetmap'"
                                         src="/images/badges/openstreetmap.svg" alt="logo du framework openstreetmap"
                                         class="w-6 h-6" />
